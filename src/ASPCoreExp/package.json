@@ -29,6 +29,7 @@
     "gulp-nop": "0.0.3",
     "gulp-util": "3.0.7",
     "gulp-rimraf": "0.2.0",
+    "gulp-cached": "1.1.1",
 
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.46"

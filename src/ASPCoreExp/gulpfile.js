@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
     rimraf = require('rimraf'),
+    cache = require('gulp-cached'),
+
     launch = require('./Properties/launchSettings.json');
 
 var environment = {
@@ -90,7 +92,10 @@ gulp.task('build-external-js', function () {
     return gulp.src(paths.externalJs).pipe(gulp.dest(paths.jsDest));
 });
 gulp.task('build-angular-js', function () {
-    return gulp.src(paths.angularJs).pipe(gulp.dest(paths.jsNgDest));
+    return gulp.src(paths.externalCss)
+        .pipe(cache('linting'))
+        .pipe(gulp.dest(paths.jsNgDest));
+    //return gulp.src(paths.angularJs).pipe(gulp.dest(paths.jsNgDest));
 });
 gulp.task('build-external-css', function () {
     return gulp.src(paths.externalCss).pipe(gulp.dest(paths.cssDest));
