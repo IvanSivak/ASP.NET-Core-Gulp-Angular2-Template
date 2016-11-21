@@ -92,7 +92,7 @@ gulp.task('build-external-js', function () {
     return gulp.src(paths.externalJs).pipe(gulp.dest(paths.jsDest));
 });
 gulp.task('build-angular-js', function () {
-    return gulp.src(paths.externalCss)
+    return gulp.src(paths.angularJs)
         .pipe(cache('linting'))
         .pipe(gulp.dest(paths.jsNgDest));
     //return gulp.src(paths.angularJs).pipe(gulp.dest(paths.jsNgDest));
