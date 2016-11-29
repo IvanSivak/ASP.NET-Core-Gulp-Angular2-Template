@@ -37,18 +37,22 @@ var paths = {
     webroot: "./wwwroot/",
     externalJs: [
         // bower is optional here, in case you need to include bootstrap and jquery
+
         //"./bower_components/jquery/dist/jquery" + (!environment.isDevelopment ? ".min" : "") + ".js",
         //"./bower_components/bootstrap/dist/js/bootstrap" + (!environment.isDevelopment ? ".min" : "") + ".js"
     ],
     angularJs: [
-        "./node_modules/core-js/client/shim.min.js",
+        // Gulp is no longer needed for copying node_modules into wwwroot. We can just use existing OWIN middleware (UseStaticFiles)
+        // as described here: http://stackoverflow.com/a/40870270/2717169
+
+        /*"./node_modules/core-js/client/shim.min.js",
         "./node_modules/zone.js/dist/zone.js",
         "./node_modules/reflect-metadata/Reflect.js",
-        "./node_modules/systemjs/dist/system.src.js",
-        "./App/External/systemjs.config.js",
+        "./node_modules/systemjs/dist/system.src.js",*/
+        "./App/External/systemjs.config.js"
 
-        "./node_modules/@angular/**/*.js",
-        "./node_modules/rxjs/**/*.js"
+        //"./node_modules/@angular/**/*.js",
+        //"./node_modules/rxjs/**/*.js"
     ],
     externalCss: [
         // bower is optional here, in case you need to include bootstrap and jquery
@@ -61,7 +65,7 @@ var paths = {
 };
 paths.bootstrapFonts = "./bower_components/bootstrap/dist/fonts/*";
 paths.jsDest = paths.webroot + "app";
-paths.jsNgDest = paths.webroot + "app/angular";
+paths.jsNgDest = paths.webroot + "app";
 paths.cssDest = paths.webroot + "css";
 paths.fontsDest = paths.webroot + "fonts";
 

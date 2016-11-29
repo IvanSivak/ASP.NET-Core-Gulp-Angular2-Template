@@ -55,7 +55,9 @@
       "Views",
       "appsettings.json",
       "web.config",
-	    "Configurations/infoConfig.json"
+      "Configurations/infoConfig.json",
+      "App",
+      "node_modules"
     ]
   },
 
